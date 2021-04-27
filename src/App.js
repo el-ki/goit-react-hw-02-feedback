@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Section from './components/Section';
 import Statistics from './components/Statistics';
 import FeedbackOptions from './components/FeedbackOptions';
@@ -6,7 +6,7 @@ import FeedbackOptions from './components/FeedbackOptions';
 // import logo from './logo.svg';
 // import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   // static defaultProps = {
   //   good: 0,
   //   neutural: 0,
@@ -53,8 +53,12 @@ class App extends React.Component {
             good={this.state.good}
             neutural={this.state.neutural}
             bad={this.state.bad}
-            total={5}
-            positivePercentage={1}
+            total={this.state.good + this.state.neutural + this.state.bad}
+            positivePercentage={Math.round(
+              (this.state.good /
+                (this.state.good + this.state.neutural + this.state.bad)) *
+                100,
+            )}
           />
         </Section>
       </div>
