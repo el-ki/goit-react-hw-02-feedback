@@ -63,21 +63,4 @@ class App extends Component {
   }
 }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Section title="">
-//         <FeedbackOptions options={23} onLeaveFeedback={23}></FeedbackOptions>
-//         <Statistics
-//           good={1}
-//           neutural={2}
-//           bad={3}
-//           total={5}
-//           positivePercentage={1}
-//         />
-//       </Section>
-//     </div>
-//   );
-// }
-
 export default App;
