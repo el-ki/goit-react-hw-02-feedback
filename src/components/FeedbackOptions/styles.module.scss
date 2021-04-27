@@ -1,3 +1,18 @@
 .btn:not(:last-child) {
   margin-right: 5px;
 }
+.btn {
+  outline: none;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  border-radius: 30px;
+  border: 1px solid;
+  box-shadow: rgb(179, 176, 176);
+  transition: all 0.2s ease;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(48, 47, 47);
+  text-shadow: 0 1px #fff;
+}

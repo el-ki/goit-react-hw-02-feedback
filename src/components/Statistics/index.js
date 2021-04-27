@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Statistics = ({ good, neutural, bad, total, positivePercentage }) => {
   return (
@@ -15,14 +16,20 @@ const Statistics = ({ good, neutural, bad, total, positivePercentage }) => {
         <p>No feedback given</p>
       )}
     </div>
-    //   <div className="stats">
-    //   <p>Good: {good}</p>
-    //   <p>Neutural: {neutural}</p>
-    //   <p>Bad: {bad}</p>
-    //   {total > 0 && <p> Total: {total}</p>}
-    //   {total > 0 && <p> Total: {positivePercentage}%</p>}
-    // </div>
   );
+};
+
+Statistics.defaultProps = {
+  total: 0,
+  positivePercentage: 0,
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutural: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 };
 
 export default Statistics;

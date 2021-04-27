@@ -3,18 +3,7 @@ import Section from './components/Section';
 import Statistics from './components/Statistics';
 import FeedbackOptions from './components/FeedbackOptions';
 
-// import logo from './logo.svg';
-// import './App.css';
-
 class App extends Component {
-  // static defaultProps = {
-  //   good: 0,
-  //   neutural: 0,
-  //   bad: 0,
-  // };
-
-  // static propTypes = {};
-
   state = {
     good: 0,
     neutural: 0,
@@ -39,7 +28,20 @@ class App extends Component {
     }));
   };
 
+  countTotalFeedback = () => {
+    const total = this.state.good + this.state.neutural + this.state.bad;
+    return total;
+  };
+
+  positivePercentage = () => {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  };
+
   render() {
+    const { good, neutural, bad } = this.state;
+    const total = this.countTotalFeedback();
+    const positivePercentage = this.positivePercentage();
+
     return (
       <div className="App">
         <Section title="">
@@ -47,18 +49,13 @@ class App extends Component {
             onGoodBtn={this.handleGoodBtn}
             onNeuturalBtn={this.handleNeuturalBtn}
             onBadBtn={this.handleBadBtn}
-            onLeaveFeedback={23}
           ></FeedbackOptions>
           <Statistics
-            good={this.state.good}
-            neutural={this.state.neutural}
-            bad={this.state.bad}
-            total={this.state.good + this.state.neutural + this.state.bad}
-            positivePercentage={Math.round(
-              (this.state.good /
-                (this.state.good + this.state.neutural + this.state.bad)) *
-                100,
-            )}
+            good={good}
+            neutural={neutural}
+            bad={bad}
+            total={total}
+            positivePercentage={positivePercentage}
           />
         </Section>
       </div>
