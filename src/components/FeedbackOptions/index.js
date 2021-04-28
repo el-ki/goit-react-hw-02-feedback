@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-const FeedbackOptions = ({ onGoodBtn, onNeuturalBtn, onBadBtn }) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div className={styles.wrapper}>
-      <button className={styles.btn} onClick={onGoodBtn}>
+      <button name={options[0]} className={styles.btn} onClick={onLeaveFeedback}>
         Good
       </button>
-      <button className={styles.btn} onClick={onNeuturalBtn}>
+      <button name={options[1]} className={styles.btn} onClick={onLeaveFeedback}>
         Neutural
       </button>
-      <button className={styles.btn} onClick={onBadBtn}>
+      <button name={options[2]} className={styles.btn} onClick={onLeaveFeedback}>
         Bad
       </button>
     </div>

@@ -10,21 +10,10 @@ class App extends Component {
     bad: 0,
   };
 
-  handleGoodBtn = () => {
+  onLeaveFeedback = (event) => {
+    const name = event.currentTarget.name;
     this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-  };
-
-  handleNeuturalBtn = () => {
-    this.setState(prevState => ({
-      neutural: prevState.neutural + 1,
-    }));
-  };
-
-  handleBadBtn = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
+      [name]: prevState[name] + 1,
     }));
   };
 
@@ -41,14 +30,15 @@ class App extends Component {
     const { good, neutural, bad } = this.state;
     const total = this.countTotalFeedback();
     const positivePercentage = this.positivePercentage();
+    const onLeaveFeedback = this.onLeaveFeedback;
+    const options = Object.keys(this.state);
 
     return (
       <div className="App">
         <Section title="">
           <FeedbackOptions
-            onGoodBtn={this.handleGoodBtn}
-            onNeuturalBtn={this.handleNeuturalBtn}
-            onBadBtn={this.handleBadBtn}
+            options={options}
+            onLeaveFeedback={onLeaveFeedback}
           ></FeedbackOptions>
           <Statistics
             good={good}
