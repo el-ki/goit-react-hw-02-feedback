@@ -1,20 +1,14 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  return (
-    <div className={styles.wrapper}>
-      <button name={options[0]} className={styles.btn} onClick={onLeaveFeedback}>
-        Good
+const FeedbackOptions = ({ options, onLeaveFeedback }) => (
+  <div className={styles.wrapper}>
+    {options.map(item => (
+      <button name={item} className={styles.btn} onClick={onLeaveFeedback}>
+        {item}
       </button>
-      <button name={options[1]} className={styles.btn} onClick={onLeaveFeedback}>
-        Neutural
-      </button>
-      <button name={options[2]} className={styles.btn} onClick={onLeaveFeedback}>
-        Bad
-      </button>
-    </div>
-  );
-};
+    ))}
+  </div>
+);
 
 export default FeedbackOptions;
